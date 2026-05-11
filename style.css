@@ -1,0 +1,131 @@
+/* Importação da fonte Quicksand do Google Fonts - Arredondada e amigável */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fff5f8; /* Tom de rosa pastel para o fundo */
+    /* Cria um padrão de bolinhas suaves usando gradiente radial */
+    background-image: radial-gradient(#ffdae9 1px, transparent 1px);
+    background-size: 20px 20px; 
+    color: #835d7c; /* Cor do texto em um roxo acinzentado para contraste suave */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Cabeçalho com as informações acadêmicas */
+header {
+    background: #ffffff;
+    color: #ff85b3;
+    padding: 20px;
+    border-radius: 20px; /* Bordas bem arredondadas */
+    margin-bottom: 30px;
+    border: 2px dashed #ffb7d5; /* Borda tracejada estilo "scrapbook" */
+    /* Sombra suave rosa para dar profundidade */
+    box-shadow: 0 4px 10px rgba(255, 183, 213, 0.3);
+}
+
+h1 {
+    color: #ff5c9d;
+    font-size: 2.5em;
+    text-shadow: 2px 2px #ffffff; /* Sombra branca para destacar o título */
+    margin-bottom: 10px;
+}
+
+/* Área principal onde o jogo acontece */
+.game-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* Alinha as torres e discos na base */
+    height: 320px;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.5); /* Fundo branco translúcido */
+    border-radius: 30px;
+    padding: 20px;
+    border-bottom: 8px solid #ffb7d5; /* Base sólida para as torres */
+}
+
+/* Estilização dos eixos das torres */
+.tower {
+    width: 160px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse; /* Faz com que os discos empilhem de baixo para cima */
+    align-items: center;
+    /* Desenha o bastão vertical da torre usando gradiente */
+    background: linear-gradient(to right, transparent 46%, #ffdae9 46%, #ffdae9 54%, transparent 54%);
+}
+
+/* Estilização individual de cada disco */
+.disk {
+    height: 28px;
+    border-radius: 20px; /* Discos em formato de "pílula" */
+    margin-bottom: 4px;
+    cursor: grab; /* Ícone de mãozinha para indicar que é arrastável */
+    transition: all 0.3s ease; /* Animação suave para movimentos e hover */
+    /* Brilho interno na parte superior para efeito 3D suave */
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Efeito visual quando o mouse passa por cima do disco */
+.disk:hover {
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
+    filter: brightness(1.1); /* Dá um brilho extra */
+}
+
+/* Estilização do contador de movimentos e metas */
+.stats p {
+    background: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin: 5px;
+    border: 1px solid #ffdae9;
+    font-weight: bold;
+}
+
+/* Campo de entrada para o número de discos */
+.controls input {
+    border: 2px solid #ffdae9;
+    border-radius: 10px;
+    padding: 8px;
+    color: #ff5c9d;
+    outline: none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Botão de Iniciar/Reiniciar */
+button {
+    padding: 10px 25px;
+    cursor: pointer;
+    background: #ff85b3;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    transition: 0.3s;
+    /* Sombra sólida inferior para efeito de botão "3D" pressionável */
+    box-shadow: 0 4px 0 #e66a9a;
+}
+
+button:hover {
+    background: #ff5c9d;
+    transform: translateY(-2px); /* Sobe levemente ao passar o mouse */
+}
+
+button:active {
+    transform: translateY(2px); /* Desce ao ser clicado */
+    box-shadow: none; /* Remove a sombra para simular o clique */
+}
+
+/* Área de feedback (Vitória ou Erro) */
+.message {
+    margin-top: 30px;
+    font-size: 1.4em;
+    padding: 15px;
+    border-radius: 15px;
+}

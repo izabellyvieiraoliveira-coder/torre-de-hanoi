@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre de Hanói - UTFPR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p>Universidade Tecnológica Federal do Paraná (UTFPR) - Campus Londrina</p>
+        <p>Disciplina: Matemática Discreta</p>
+        <p>Professor: Alireza Mohebi Ashtiani</p>
+        <p>Discente: Izabelly Vieira de Oliveira (RA: 2810913) e Larissa de Lima Caputt(RA: 2810948)</p>
+    </header>
+
+    <main>
+        <h1>Torre de Hanói</h1>
+        
+        <div class="controls">
+            <label for="diskCount">Número de discos:</label>
+            <input type="number" id="diskCount" min="3" max="8" value="3">
+            <button onclick="resetGame()">Iniciar/Reiniciar</button>
+        </div>
+
+        <div class="stats">
+            <p>Mínimo de movimentos: <span id="minMoves">0</span></p>
+            <p>Movimentos realizados: <span id="currentMoves">0</span></p>
+        </div>
+
+        <div class="game-container">
+            <div class="tower" id="tower1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="tower" id="tower2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="tower" id="tower3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+
+        <div id="message" class="message"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
