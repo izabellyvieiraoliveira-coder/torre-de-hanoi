@@ -130,28 +130,38 @@ function drop(ev) {
 /**
  * Verifica se as condições de vitória ou fim de jogo foram atingidas.
  */
+/**
+ * Verifica se as condições de vitória ou fim de jogo foram atingidas.
+ */
 function checkGameStatus(towerId) {
+    const tower2 = document.getElementById('tower2');
     const tower3 = document.getElementById('tower3');
     const messageElement = document.getElementById('message');
 
     /**
-     * CONDIÇÃO DE VITÓRIA:
-     * O jogo termina com sucesso se todos os discos estiverem na Torre 3.
+     * CONDIÇÃO DE VITÓRIA ATUALIZADA:
+     * O jogo termina com sucesso se TODOS os discos estiverem juntos 
+     * na Torre 2 OU na Torre 3.
      */
-    if (towerId === 'tower3' && tower3.childElementCount === totalDisks) {
+    const venceuNaTorre2 = (tower2.childElementCount === totalDisks);
+    const venceuNaTorre3 = (tower3.childElementCount === totalDisks);
+
+    if (venceuNaTorre2 || venceuNaTorre3) {
         messageElement.style.color = "#ff85b3"; // Rosa do tema
         messageElement.innerText = `✨ Sucesso! Você concluiu em ${moveCount} movimentos! ✨`;
         disableDrags(); // Trava o jogo para evitar movimentos extras
-        return;
+        return; // Sai da função imediatamente, garantindo que NÃO vai dar Game Over
     }
 
     /**
      * CONDIÇÃO DE GAME OVER:
-     * Exibe aviso caso o jogador alcance o número mínimo teórico e ainda não tenha vencido.
+     * Só vai disparar se o jogador atingir/estourar o limite mínimo 
+     * E a verificação de vitória acima tiver sido falsa.
      */
     else if (moveCount >= minMovesPossible) {
         messageElement.style.color = "#835d7c";
         messageElement.innerText = "Game Over! Você atingiu o número mínimo de movimentos sem completar a solução. 🎀";
+        disableDrags(); // Opcional: trava o jogo também no Game Over
     }
 }
 
