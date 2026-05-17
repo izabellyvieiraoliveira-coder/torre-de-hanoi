@@ -149,7 +149,7 @@ function checkGameStatus(towerId) {
      * CONDIÇÃO DE GAME OVER:
      * Exibe aviso caso o jogador alcance o número mínimo teórico e ainda não tenha vencido.
      */
-    if (moveCount >= minMovesPossible) {
+    else if (moveCount >= minMovesPossible) {
         messageElement.style.color = "#835d7c";
         messageElement.innerText = "Game Over! Você atingiu o número mínimo de movimentos sem completar a solução. 🎀";
     }
